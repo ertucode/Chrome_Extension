@@ -1,0 +1,37 @@
+{
+    "manifest_version": 2,
+    "name": "Search 🔎",
+    "version": "1.1",
+    "description": "Whatever",
+    "icons": {
+        "128": "icon128.png",
+        "48": "icon48.png",
+        "16": "icon16.png"
+    },
+
+
+    "background": {
+        "scripts": ["eventPage.js"],
+        "persistent": false
+    },
+
+    "content_scripts": [{
+        "matches": ["<all_urls>","https://*/*"],
+        "js": ["content.js","jquery-3.1.0.min.js","toaster.js"],
+        "css": ["toaster.css"],
+        "all_frames": true,
+        "match_about_blank": true
+    }],
+
+    "permissions": [
+        "storage",
+        "notifications",
+        "contextMenus",
+        "tabs",
+        "<all_urls>",
+        "https://*/*",
+        "clipboardRead"
+    ],
+    "web_accessible_resources": ["src/options/options.html"]
+}
+
